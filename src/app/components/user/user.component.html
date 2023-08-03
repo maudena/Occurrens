@@ -1,0 +1,40 @@
+<div class="container-fluid userContainer">
+  <div class="row">
+    <div class="col-2">
+      <div>
+        <img src="" alt="" />
+      </div>
+      <div class="p">
+        <p>link</p>
+        <p>link</p>
+        <p>link</p>
+      </div>
+    </div>
+    <div class="col-5">
+      <h5>Informacion del usuario</h5>
+        <div>
+            <p>{{user.fullname}}</p>
+            <p>{{user.username}}</p>
+            <p>{{user.phone}}</p>
+            <p>{{user.category}}</p>
+            <p>{{user.email}}</p>
+        </div>
+
+    </div>
+
+    <div class="col-5">
+      <h5>Eventos creados por el usuario</h5>
+        <div class="userEvents" *ngFor="let evento of listaEventos">
+          <div>
+            <p>{{evento.name}}</p>
+            <p>{{evento.description}}</p>
+            <p>{{evento.location}}</p>
+            <p>{{evento.date | date:'dd/MM/yyyy'}}</p>
+            <div class="botonDetalles">
+              <a class="linkDetail btn-primary btn" routerLink="/evento/{{evento._id}}">Detalles</a>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

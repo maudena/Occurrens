@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 homeLeftOne">
+            <div class="d-flex justify-content-center">
+                <h4>Herramientas</h4>
+            </div>
+
+            <hr class="pt-0 mt-0">
+
+            <div>
+                <input type="text" class="form-control" name="filterEvento" placeholder="Buscar evento por localización..." [(ngModel)]="filterEvento">
+
+                <ul>
+                    <li>
+                        <a routerLink="/new-evento">Crear nuevo evento</a>
+                    </li>
+                    <li>
+                        <a routerLink="/update-evento">Editar evento(hacer)</a>
+                    </li>
+                </ul>
+                
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 homeCenterOne">
+            <div class="d-flex justify-content-center">
+                <h4>Eventos del usuario</h4>
+            </div>
+
+            <hr class="pt-0 mt-0">
+
+            <div class="container-fluid m-0 p-0" *ngFor="let evento of listaEventos | filter:filterEvento">
+                <div class="row">
+                    <div class="col-sm ">
+                        <div>
+                            <h5 class="">{{evento.name}}</h5>
+                        </div>
+                        <div class="subEvent">
+                            <p class="organizedBy">Organizado por <a (click)="redirectToUserProfile(evento.owner._id)">{{evento.owner.username}}</a></p>
+                            <p class="date">{{evento.date | date:'dd/MM/yyyy'}}</p>
+                        </div>
+                        <div class="">
+                            <p>{{evento.description}}</p>
+                        </div>
+                        <div class="">
+                            <p>{{evento.location}}</p>
+                        </div>
+                        <div *ngIf="evento.ticket; else showDos">
+                            <div>
+                                <p class="p-0 m-0">Entradas disponibles: {{evento.availableTickets}}</p>
+                            
+                                <p>Precio de entrada: $ {{evento.ticketPrice}}</p>
+                            </div>
+                            <div class="botones">
+                                <div class="botonDetalles">
+                                    <a class="linkDetail btn-primary btn" routerLink="/update-evento/{{evento._id}}">Editar</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <ng-template #showDos>
+                            <p>Evento sin costo de entrada</p>
+                            <div class="botonDetalles">
+                                <a class="linkDetail btn-primary btn" routerLink="/update-evento/{{evento._id}}">Editar</a>
+                            </div>
+                        </ng-template>
+                        
+                        
+                    </div>
+
+                    <div class="col-sm m-0 p-0">
+                        <div class="d-flex justify-content-center">
+                            <img class="images" [src]="imageUrlPrefix + evento.image" alt="">
+                        </div>
+                    </div>
+                    
+                </div>
+                <hr>
+            </div>
+            
+
+        </div>
+        <div class="col-lg homeRightOne">
+            <div class="d-flex justify-content-center">
+                <h4>Proximos eventos</h4>
+            </div>
+            <hr class="pt-0 mt-0">
+        </div>
+    </div>
+</div>

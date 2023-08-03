@@ -1,0 +1,13 @@
+.eventContainer{
+    margin: 5px;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.images {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+*{
+  font-family: "Ubuntu", sans-serif;
+}
+
+.homeLeftOne, .homeCenterOne, .homeRightOne {
+  margin: 5px;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.linkDetail{
+  color: white;
+}
+.costoService{
+  font-size: 12px;
+}
+
+h5{
+  padding-bottom: 0;
+  margin-bottom: 0;
+  font-size: 22px;
+}
+.subEvent{
+  padding-top: 0;
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 14px;
+}
+.subEvent{
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.botonDetalles{
+  padding-left: 7px;
+  padding-bottom: 10px;
+}
+.images{
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+.organizedBy a {
+  text-decoration: underline; 
+  color: #000; 
+  transition: color 0.3s; 
+  cursor: pointer; 
+}
+
+
+.organizedBy a:hover {
+  color: blue; 
+  text-decoration: underline; 
+}
+.botones{
+  display: flex;
+  
+}

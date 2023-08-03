@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="title">Editar un Evento</div>
+    <div class="content">
+        <form [formGroup]="form" (submit)="submit()" enctype="multipart/form-data">
+            <div class="event-details">
+                <div class="input-box">
+                    <span class="details">Título del evento</span>
+                    <input formControlName="name" type="text" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Fecha del evento</span>
+                    <input formControlName="date" type="date" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Ubicación del evento</span>
+                    <input formControlName="location" type="text" required>
+                </div>
+                <div class="input-box">
+                    <label for="exampleFormControlTextarea1" class="form-label">Descripción del evento</label>
+                    <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Imagen</label>
+                    <input formControlName="image" type="file" (change)="fileChosen($event)"/>
+                </div>
+                <div class="form-check">
+                    <input formControlName="ticket" class="form-check-input" type="checkbox" 
+                        id="flexCheckDefault" [(ngModel)]="isChecked">
+                    <label class="form-check-label" for="flexCheckDefault">Venta de entradas</label>
+                </div>
+                <div class="input-box">
+                    <span class="details">Precio de la entrada</span>
+                    <input formControlName="ticketPrice" type="text" placeholder="Ingresa un precio "required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Cantidad de entradas disponibles</span>
+                    <input formControlName="availableTickets" type="text" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Categoría del evento</span>
+                    <select formControlName="category" class="form-select" aria-label="Default select example" required>
+                
+                        <option value="general">Entretenimiento general</option>
+                        <option value="music">Música</option>
+                        <option value="food">Gastronomía</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="button">
+                <input type="submit" value="Crear Evento">
+            </div>
+        </form>
+    </div>
+</div>
