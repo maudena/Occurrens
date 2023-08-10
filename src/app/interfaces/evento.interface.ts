@@ -1,7 +1,10 @@
 export interface Evento {
     _id?: string
     name: string;
-    owner: string;
+    owner: {
+        _id: string;
+        username: string;
+      };
     image: string;
     location: string;
     date: string;

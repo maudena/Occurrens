@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@700&family=Koulen&family=Staatliches&family=Ubuntu&display=swap');
+
+.navbar-brand{
+    margin-left: 4rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+}
+.navbar-nav{
+    margin-top: 1rem;
+    margin-right: 4rem;
+}
+ul li a{
+    font-family: "Poppins", sans-serif;
+    font-size: 21px;
+    color:#fff
+}

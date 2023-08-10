@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/">Occurrens</a>
+<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong d-flex">
+    
+        <div class="logo d-flex justify-content-center">
+            <a class="navbar-brand" routerLink="/">OCCURRENS</a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,15 +19,16 @@
 
             <ul class="navbar-nav" *ngIf="authenticated">
                 <li class="nav-item">
-                    <a class="nav-link" (click)="logout()" routerLink="/login">Logout</a>
+                    <a class="nav-link" routerLink="/eventos">Eventos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/user">Cuenta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/eventos">Eventos</a>
+                    <a class="nav-link" (click)="logout()" routerLink="/login">Logout
+                    </a>
                 </li>
             </ul>
         </div>
-    </div>
 </nav>
+

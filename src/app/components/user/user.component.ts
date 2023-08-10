@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Emitters } from 'src/app/emitters/emitter';
 import { User } from '../../interfaces/user.interface';
 import { Evento } from 'src/app/interfaces/evento.interface';
 @Component({
@@ -39,7 +38,6 @@ export class UserComponent implements OnInit {
             error: (error) => {
               console.log(error);
               this.router.navigate(['/login']);
-              Emitters.authEmitter.emit(false);
             },
           });
       } else {
@@ -52,12 +50,11 @@ export class UserComponent implements OnInit {
             next: (res: any) => {
               this.user = res;
               this.listaEventos = this.user.userEvents;
-              Emitters.authEmitter.emit(true);
             },
             error: (error) => {
               console.log(error);
               this.router.navigate(['/login']);
-              Emitters.authEmitter.emit(false);
+              
             },
           });
       }

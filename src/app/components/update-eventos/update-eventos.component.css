@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Koulen&family=Staatliches&family=Ubuntu&display=swap');
+
+p, a{
   font-family: "Ubuntu", sans-serif;
 }
+
 
 .homeLeftOne, .homeCenterOne, .homeRightOne {
   margin: 5px;
@@ -10,39 +12,93 @@
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
 }
+.homeLeftOne, .homeRightOne{
+  margin-top: 25px;
+}
+
+.date{
+  font-family: "Staatliches", sans-serif;
+  font-size: 20px;
+  
+}
+
+.tools{
+  padding-top: 10px;
+  list-style:none;
+}
+.tools li a{
+  
+}
+
+.eventoContainer{
+  overflow: hidden;
+}
 
 .linkDetail{
-  color: white;
+  color: black;
 }
+
 .costoService{
   font-size: 12px;
 }
+h1{
+  font-family: "Staatliches", sans-serif;
+}
 
+h4{
+  display: flex;
+  align-items:end;
+  font-family: "Staatliches", sans-serif;
+}
 h5{
+  font-family: "Antonio", sans-serif;
   padding-bottom: 0;
   margin-bottom: 0;
   font-size: 22px;
 }
 .subEvent{
+  display: flex;
+  justify-content: space-between;
   padding-top: 0;
   margin-top: 0;
   font-weight: 400;
   font-size: 14px;
 }
-.subEvent{
-  padding-top: 5px;
-  display: flex;
-  justify-content: space-between;
+.subNextEvent{
+  padding-top: 0;
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.homeSubs{
+  height: 3.5rem;
+  justify-content: center;
+}
+.dateNextEvent{
+  font-family: "Staatliches", sans-serif;
+  font-size: 25px;
+  
 }
 
 .botonDetalles{
   padding-left: 7px;
   padding-bottom: 10px;
 }
+.botonDetalles :hover{
+  background-color: #e1e6d6e3;
+}
+
+
+.imagesContainer{
+  max-height: 21.875rem;
+  clip-path: polygon(100% 0%, 100% 56%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+  
+  
+}
 .images{
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
+  max-width: 100%;
+  object-fit: cover;
 }
 .organizedBy a {
   text-decoration: underline; 
@@ -60,3 +116,4 @@ h5{
   display: flex;
   
 }
+

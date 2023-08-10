@@ -37,7 +37,7 @@
                             <h5 class="">{{evento.name}}</h5>
                         </div>
                         <div class="subEvent">
-                            <p class="organizedBy">Organizado por <a (click)="redirectToUserProfile(evento.owner._id)">{{evento.owner.username}}</a></p>
+                            <p class="organizedBy">Organizado por ti</p>
                             <p class="date">{{evento.date | date:'dd/MM/yyyy'}}</p>
                         </div>
                         <div class="">
@@ -69,11 +69,9 @@
                         
                     </div>
 
-                    <div class="col-sm m-0 p-0">
-                        <div class="d-flex justify-content-center">
-                            <img class="images" [src]="imageUrlPrefix + evento.image" alt="">
-                        </div>
-                    </div>
+                    <div class="imagesContainer col-sm d-flex m-0 p-0">
+                        <img class="images" [src]="imageUrlPrefix + evento.image" alt="" />
+                      </div>
                     
                 </div>
                 <hr>
