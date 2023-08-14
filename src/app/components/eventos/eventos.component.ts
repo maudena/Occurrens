@@ -1,36 +1,46 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Evento } from 'src/app/interfaces/evento.interface';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EventoService } from 'src/app/services/evento-service.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { Evento } from 'src/app/interfaces/evento.interface';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-eventos',
+  templateUrl: './eventos.component.html',
+  styleUrls: ['./eventos.component.css'],
 })
-export class HomeComponent implements OnInit {
-  message = '';
-  listaEventos: Evento[] = [];
-  listaProximosEventos: Evento[] = [];
+export class EventosComponent implements OnInit {
   imageUrlPrefix = 'http://localhost:3000/public/';
-  filterEvento = '';
+  listaEventos: Evento[] = [];
+  category = '';
+
   constructor(
     private http: HttpClient,
     private router: Router,
+    private route: ActivatedRoute,
     public eventoService: EventoService,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const category = params.get('category');
+
+      if (category !== null) {
+        this.category = category;
+        this.loadEventosByCategoria(this.category);
+      } else {
+        this.loadAllEventos();
+      }
+    });
+
     this.http
       .get('http://localhost:3000/api/user', {
         withCredentials: true,
       })
       .subscribe({
         next: (res: any) => {
-          this.message = `Hola! ${res.username}`;
           this.authService.setAuthenticated(true);
         },
         error: error => {
@@ -38,7 +48,24 @@ export class HomeComponent implements OnInit {
           this.authService.setAuthenticated(false);
         },
       });
+  }
 
+  loadEventosByCategoria(category: string) {
+    this.http
+      .get<Evento[]>(`http://localhost:3000/api/eventos/${category}`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: data => {
+          this.listaEventos = data;
+        },
+        error: error => {
+          console.log(error);
+        },
+      });
+  }
+
+  loadAllEventos() {
     this.http
       .get<Evento[]>('http://localhost:3000/api/eventos', {
         withCredentials: true,
@@ -46,35 +73,14 @@ export class HomeComponent implements OnInit {
       .subscribe({
         next: data => {
           this.listaEventos = data;
-          this.listaProximosEventos = [...this.listaEventos];
-          this.ordenarEventosPorFechaDescendente(this.listaProximosEventos);
-          this.actualizarEventosDestacados();
-          this.actualizarEventosProximos();
         },
         error: error => {
-          this.message = 'No estas logueado';
+          console.log(error);
         },
       });
   }
 
-  actualizarEventosDestacados() {
-    const eventosDestacados = [...this.listaEventos];
-    eventosDestacados.sort((a: any, b: any) => b.interaction - a.interaction);
-    const primerosDestacados = eventosDestacados.slice(0, 3);
-    this.eventoService.updateDestacados(primerosDestacados);
-  }
-
-  actualizarEventosProximos() {
-    const eventosProximos = [...this.listaEventos];
-    eventosProximos.sort(
-      (a: any, b: any) =>
-        new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-    const primerosProximos = eventosProximos.slice(0, 5);
-    this.eventoService.updateProximos(primerosProximos);
-  }
-
-  redirectToEventoDetails(eventoId: string): void {
+  redirectToEventoDetails(eventoId: any): void {
     this.http
       .get<Evento>(`http://localhost:3000/api/evento/${eventoId}`, {
         withCredentials: true,
@@ -90,16 +96,6 @@ export class HomeComponent implements OnInit {
         },
       });
   }
-
-  ordenarEventosPorFechaDescendente(eventos: any[]) {
-    eventos.sort((a: any, b: any) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-
-      return dateA.getTime() - dateB.getTime();
-    });
-  }
-
   redirectToUserProfile(userId: string): void {
     console.log(userId);
 

@@ -27,22 +27,15 @@ h5{
 }
 
 
-.homeLeftOne, .homeCenterOne, .homeRightOne {
+.homeCenterOne{
   margin: 5px;
   background-color: #fff;
   padding: 15px 20px;
   border-radius: 5px;
   
 }
-.homeRightOne, .homeLeftOne{
-  padding-top: 5px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.homeLeftOne h5, .homeRightOne h5{
-  margin-top: 25px;
-  font-size: 23px;
-}
+
+
 .outer-container {
   display: flex;
   justify-content: center;
@@ -60,10 +53,6 @@ h5{
   overflow: hidden; 
 }
 
-
-
-
-
 .dateStyle{
   padding: 5px;
   background-color: #282860;
@@ -77,14 +66,7 @@ h5{
   
 }
 
-.tools{
-  padding-top: 10px;
-  list-style:none;
-}
-
-
 .eventoContainer{
-    
     overflow: hidden;
 }
 
@@ -97,19 +79,9 @@ h5{
 
 }
 
-
-.sideEventoName{
-  font-size: 21px;
-}
 .subEvent{
   display: flex;
   justify-content: space-between;
-  padding-top: 0;
-  margin-top: 0;
-  font-weight: 400;
-  font-size: 13px;
-}
-.subNextEvent{
   padding-top: 0;
   margin-top: 0;
   font-weight: 400;
@@ -119,10 +91,6 @@ h5{
 .homeSubs{
   height: 3.5rem;
   justify-content: center;
-}
-.dateNextEvent{
-  font-family: "Staatliches", sans-serif;
-  font-size: 25px;
 }
 
 
@@ -166,46 +134,20 @@ h5{
   will-change: transform;
 }
 
-.botonDetalles:disabled, .botonDetallesSide:disabled{
+.botonDetalles:disabled{
   pointer-events: none;
 }
 
-.botonDetalles:hover, .botonDetallesSide:hover {
+.botonDetalles:hover{
   color: #fff;
   background-color: #282860;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
 
-.botonDetalles:active, .botonDetallesSide:active {
+.botonDetalles:active{
   box-shadow: none;
   transform: translateY(0);
-}
-
-.botonDetallesSide{
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #282860;
-  border-radius: 15px;
-  box-sizing: border-box;
-  color: #282860;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: normal;
-  margin-left: 5px;
-  outline: none;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
-  will-change: transform;
 }
 
 .imagesContainer{

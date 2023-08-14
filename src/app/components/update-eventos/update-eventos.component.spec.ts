@@ -8,7 +8,7 @@ describe('UpdateEventoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UpdateEventosComponent]
+      declarations: [UpdateEventosComponent],
     });
     fixture = TestBed.createComponent(UpdateEventosComponent);
     component = fixture.componentInstance;

@@ -1,46 +1,15 @@
 <section class="container-fluid">
   <div class="row">
-    <article class="col homeLeftOne">
-      <div class="d-flex homeSubs">
-        <h5>HERRAMIENTAS</h5>
-      </div>
-
-      <hr class="pt-0 mt-0" />
-
-      <div>
-        <input
-          type="text"
-          class="form-control"
-          name="filterEvento"
-          placeholder="Buscar evento..."
-          [(ngModel)]="filterEvento" />
-
-        <ul class="tools">
-          <li>
-            <a routerLink="/new-evento">Crear nuevo evento</a>
-          </li>
-          <li>
-            <a routerLink="/update-eventos">Editar evento(mejorar)</a>
-          </li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="col-lg-7 homeCenterOne">
+    <article class="col homeCenterOne">
       <div class="d-flex">
-        <h1>DESTACADOS</h1>
+        <h1>EVENTOS</h1>
       </div>
 
       <hr class="pt-0 mt-0" />
 
       <div
         class="container-fluid rowsContainer m-0 p-0"
-        *ngFor="
-          let evento of eventoService.destacados$
-            | async
-            | filter: filterEvento;
-          let i = index
-        ">
+        *ngFor="let evento of listaEventos">
         <div class="row eventoContainer">
           <div class="outer-container">
             <div class="inner-container dateStyle">
@@ -152,7 +121,7 @@
               <div class="botones">
                 <button
                   class="botonDetalles"
-                  (click)="redirectToEventoDetails(evento._id)"
+                  (click)="redirectToEventoDetails(evento.owner._id)"
                   role="button">
                   Detalles
                 </button>
@@ -165,41 +134,6 @@
           </div>
         </div>
         <hr />
-      </div>
-    </article>
-
-    <article class="col homeRightOne">
-      <div class="d-flex homeSubs">
-        <h5>PROXIMOS EVENTOS</h5>
-      </div>
-      <hr class="pt-0 mt-0" />
-      <div *ngFor="let evento of eventoService.proximos$ | async">
-        <div class="px-2">
-          <div>
-            <h5 class="sideEventoName">{{ evento.name }}</h5>
-          </div>
-          <div class="subNextEvent">
-            <p class="organizedBy">
-              Organizado por
-              <a (click)="redirectToUserProfile(evento.owner._id)">{{
-                evento.owner.username
-              }}</a>
-            </p>
-            <div class="d-flex justify-content-between text-center pt-2">
-              <p class="dateNextEvent mb-0 pt-1">
-                {{ evento.date | date: 'dd/MM/yyyy' }}
-              </p>
-
-              <button
-                class="botonDetallesSide"
-                routerLink="/evento/{{ evento._id }}"
-                role="button">
-                Detalles
-              </button>
-            </div>
-          </div>
-          <hr />
-        </div>
       </div>
     </article>
   </div>

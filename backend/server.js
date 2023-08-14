@@ -16,7 +16,7 @@ const app = express();
 app.use("/public", express.static(path.join(__dirname, 'public')))
 const storage = multer.diskStorage({
   destination: path.join(__dirname, "public"),
-  filename:(req, file, cb, filename) => {
+  filename:(req, file, cb,) => {
     cb(null, uuidv4() + path.extname(file.originalname))
   }
 })
@@ -37,7 +37,7 @@ app.use("/api", router);
 
 
 try {
-  await mongoose
+  mongoose
     .connect(
       "mongodb+srv://Maudena:1ogj4glbhVa3ep1c@cluster0.4mbu3fv.mongodb.net/?retryWrites=true&w=majority"
     )

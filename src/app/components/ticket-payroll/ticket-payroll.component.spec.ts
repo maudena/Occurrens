@@ -8,7 +8,7 @@ describe('TicketPayrollComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TicketPayrollComponent]
+      declarations: [TicketPayrollComponent],
     });
     fixture = TestBed.createComponent(TicketPayrollComponent);
     component = fixture.componentInstance;

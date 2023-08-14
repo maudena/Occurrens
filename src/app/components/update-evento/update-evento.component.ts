@@ -47,11 +47,10 @@ export class UpdateEventoComponent implements OnInit {
         });
         this.isChecked = this.evento.ticket;
       },
-      error: (error) => {
+      error: error => {
         this.router.navigate(['/login']);
       },
     });
-
 
     this.http
       .get(`http://localhost:3000/api/evento/${this.eventId}`, {
@@ -61,7 +60,7 @@ export class UpdateEventoComponent implements OnInit {
         next: (res: any) => {
           this.evento = res;
         },
-        error: (error) => {
+        error: error => {
           this.router.navigate(['/login']);
         },
       });
@@ -123,7 +122,7 @@ export class UpdateEventoComponent implements OnInit {
             this.getUserData();
             this.router.navigate(['/']);
           },
-          error: (error) => {
+          error: error => {
             Swal.fire('Error', error.message, 'error');
           },
         });
@@ -140,7 +139,7 @@ export class UpdateEventoComponent implements OnInit {
           this.user = res;
           this.listaEventos = this.user.userEvents;
         },
-        error: (error) => {
+        error: error => {
           this.router.navigate(['/login']);
         },
       });

@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
+    this.route.paramMap.subscribe(params => {
       const userId = params.get('id');
       if (userId) {
         // Se proporcionó un ID de usuario en la ruta, obtener los datos del usuario correspondiente
@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
               this.listaEventos = this.user.userEvents;
               this.isCurrentUserProfile = false; // Indicar que el perfil no es del usuario actual
             },
-            error: (error) => {
+            error: error => {
               console.log(error);
               this.router.navigate(['/login']);
             },
@@ -51,10 +51,9 @@ export class UserComponent implements OnInit {
               this.user = res;
               this.listaEventos = this.user.userEvents;
             },
-            error: (error) => {
+            error: error => {
               console.log(error);
               this.router.navigate(['/login']);
-              
             },
           });
       }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Evento } from '../interfaces/evento.interface';
 
@@ -7,8 +7,7 @@ import { Evento } from '../interfaces/evento.interface';
   providedIn: 'root',
 })
 export class EventoService {
-
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
   private interactionSubject = new BehaviorSubject<number>(0);
   interaction$ = this.interactionSubject.asObservable();
@@ -43,8 +42,11 @@ export class EventoService {
   }
 
   getEventoById(eventoId: string) {
-    return this.http.get<Evento>(`http://localhost:3000/api/evento/${eventoId}`, {
-      withCredentials: true,
-    });
+    return this.http.get<Evento>(
+      `http://localhost:3000/api/evento/${eventoId}`,
+      {
+        withCredentials: true,
+      }
+    );
   }
 }

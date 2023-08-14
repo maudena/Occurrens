@@ -4,10 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { EventoService } from 'src/app/services/evento-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-evento',
   templateUrl: './evento.component.html',
-  styleUrls: ['./evento.component.css']
+  styleUrls: ['./evento.component.css'],
 })
 export class EventoComponent implements OnInit {
   evento: Evento = {} as Evento;
@@ -17,11 +18,25 @@ export class EventoComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private eventoService: EventoService
-  ){}
-
+    private eventoService: EventoService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.http
+      .get('http://localhost:3000/api/user', {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (res: any) => {
+          this.authService.setAuthenticated(true);
+        },
+        error: error => {
+          this.router.navigate(['/login']);
+          this.authService.setAuthenticated(false);
+        },
+      });
+
     const eventId = this.route.snapshot.paramMap.get('id');
     const cachedEvento = this.eventoService.getEvento();
 
@@ -37,13 +52,13 @@ export class EventoComponent implements OnInit {
             this.evento = data;
             this.eventoService.updateEvento(data);
           },
-          error: (error) => {
+          error: error => {
             console.log('Error al obtener los detalles del evento:', error);
           },
         });
     }
   }
-  
+
   getMapLink(location: string): string {
     const encodedLocation = encodeURIComponent(location);
     return `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;

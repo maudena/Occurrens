@@ -19,8 +19,8 @@ export async function getUser (req, res){
       }                                           //
   
       const user = await User.findOne({_id:claims._id}).populate('userEvents')
-      const {password,...data} = user.toJSON()
-      res.send(data)
+     res.send(user.toJSON())
+      
   
     } catch (error) {
         return res.status(401).send({

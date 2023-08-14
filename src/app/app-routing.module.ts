@@ -9,22 +9,25 @@ import { UserComponent } from './components/user/user.component';
 import { EventoComponent } from './components/evento/evento.component';
 import { UpdateEventosComponent } from './components/update-eventos/update-eventos.component';
 import { UpdateEventoComponent } from './components/update-evento/update-evento.component';
+import { EventosComponent } from './components/eventos/eventos.component';
 
 const routes: Routes = [
-  {path:"",component: HomeComponent},
-  {path:"nav",component: NavComponent},
-  {path:"login",component: LoginComponent},
-  {path:"register",component: RegisterComponent},
-  {path:"user", component: UserComponent},
-  {path:"new-evento", component: NewEventoComponent},
-  {path:"evento/:id", component: EventoComponent},
-  {path:"user/:id", component: UserComponent},
-  {path:"update-eventos", component: UpdateEventosComponent},
-  {path:"update-evento/:id", component: UpdateEventoComponent}
+  { path: '', component: HomeComponent },
+  { path: 'nav', component: NavComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'new-evento', component: NewEventoComponent },
+  { path: 'eventos', component: EventosComponent },
+  { path: 'evento/:id', component: EventoComponent },
+  { path: 'user/:id', component: UserComponent },
+  { path: 'update-eventos', component: UpdateEventosComponent },
+  { path: 'update-evento/:id', component: UpdateEventoComponent },
+  { path: 'eventos/:category', component: EventosComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
