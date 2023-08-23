@@ -19,7 +19,7 @@ export async function getUser (req, res){
       }                                           //
   
       const user = await User.findOne({_id:claims._id}).populate('userEvents')
-     res.send(user.toJSON())
+      res.send(user.toJSON())
       
   
     } catch (error) {

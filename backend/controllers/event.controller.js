@@ -7,6 +7,8 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
+// CREATE
 export async function postNewEvento(req, res) {
   try {
     const cookie = req.cookies['jwt'];
@@ -48,6 +50,7 @@ export async function postNewEvento(req, res) {
   }
 }
 
+// READ
 export async function getEventos(req, res) {
   try {
     const evento = await Evento.find().populate('owner').lean();
@@ -74,6 +77,7 @@ export async function getEvento(req, res) {
   }
 }
 
+// FILTRO DE CATEGORIAS
 export async function getEventsByCategory(req, res){
   const category = req.params.category
   try {
@@ -89,6 +93,7 @@ export async function getEventsByCategory(req, res){
   }
 }
 
+// UPDATE
 export async function putEvento(req, res) {
   try {
     const id = req.params.id;
@@ -130,6 +135,7 @@ export async function putEvento(req, res) {
   }
 }
 
+// DELETE
 export async function deleteEvento(req, res) {
   const id = req.params.id;
   try {

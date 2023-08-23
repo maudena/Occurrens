@@ -34,6 +34,7 @@ app.use(express.json());
 app.use("/api", router);
 
 
+const PORT = process.env.PORT ?? 3000
 
 
 try {
@@ -42,7 +43,7 @@ try {
       "mongodb+srv://Maudena:1ogj4glbhVa3ep1c@cluster0.4mbu3fv.mongodb.net/?retryWrites=true&w=majority"
     )
     .then(console.log("DB ON"));
-  app.listen(3000, () => console.log("Server Up"));
+  app.listen(PORT, () => console.log("Server Up"));
 } catch (error) {
   console.log(error);
 }
