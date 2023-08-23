@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventoService } from 'src/app/services/evento-service.service';
+import { EventoService } from 'src/app/services/evento.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Evento } from 'src/app/interfaces/evento.interface';
 
@@ -38,40 +38,6 @@ export class HomeComponent implements OnInit {
           this.authService.setAuthenticated(false);
         },
       });
-
-    this.http
-      .get<Evento[]>('http://localhost:3000/api/eventos', {
-        withCredentials: true,
-      })
-      .subscribe({
-        next: data => {
-          this.listaEventos = data;
-          this.listaProximosEventos = [...this.listaEventos];
-          this.ordenarEventosPorFechaDescendente(this.listaProximosEventos);
-          this.actualizarEventosDestacados();
-          this.actualizarEventosProximos();
-        },
-        error: error => {
-          this.message = 'No estas logueado';
-        },
-      });
-  }
-
-  actualizarEventosDestacados() {
-    const eventosDestacados = [...this.listaEventos];
-    eventosDestacados.sort((a: any, b: any) => b.interaction - a.interaction);
-    const primerosDestacados = eventosDestacados.slice(0, 3);
-    this.eventoService.updateDestacados(primerosDestacados);
-  }
-
-  actualizarEventosProximos() {
-    const eventosProximos = [...this.listaEventos];
-    eventosProximos.sort(
-      (a: any, b: any) =>
-        new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-    const primerosProximos = eventosProximos.slice(0, 5);
-    this.eventoService.updateProximos(primerosProximos);
   }
 
   redirectToEventoDetails(eventoId: string): void {
@@ -89,15 +55,6 @@ export class HomeComponent implements OnInit {
           console.log('Error al obtener los detalles del evento:', error);
         },
       });
-  }
-
-  ordenarEventosPorFechaDescendente(eventos: any[]) {
-    eventos.sort((a: any, b: any) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-
-      return dateA.getTime() - dateB.getTime();
-    });
   }
 
   redirectToUserProfile(userId: string): void {

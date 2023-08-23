@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Evento } from 'src/app/interfaces/evento.interface';
 import { User } from 'src/app/interfaces/user.interface';
-import { EventoService } from 'src/app/services/evento-service.service';
+import { EventoService } from 'src/app/services/evento.service';
 
 @Component({
   selector: 'app-update-evento',

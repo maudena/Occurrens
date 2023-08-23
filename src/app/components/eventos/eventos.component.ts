@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Evento } from 'src/app/interfaces/evento.interface';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EventoService } from 'src/app/services/evento-service.service';
+import { EventoService } from 'src/app/services/evento.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

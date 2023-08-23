@@ -1,0 +1,15 @@
+<article class="proximosContainer">
+  <div class="proximosTitle">
+    <h5>PROXIMOS EVENTOS</h5>
+  </div>
+  <hr />
+  <div *ngFor="let evento of listaProximos" class="p-2">
+    <div class="d-flex flex-column justify-content-center">
+      <div class="dateStyle">
+        <p class="date">{{ evento.date | date }}</p>
+      </div>
+      <p>{{ evento.name }}</p>
+    </div>
+    <hr class="p-0 m-0" />
+  </div>
+</article>

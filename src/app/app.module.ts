@@ -16,6 +16,9 @@ import { TicketPayrollComponent } from './components/ticket-payroll/ticket-payro
 import { UpdateEventosComponent } from './components/update-eventos/update-eventos.component';
 import { UpdateEventoComponent } from './components/update-evento/update-evento.component';
 import { EventosComponent } from './components/eventos/eventos.component';
+import { DestacadosComponent } from './components/destacados/destacados.component';
+import { ToolsComponent } from './components/tools/tools.component';
+import { ProximosEventosComponent } from './components/proximos-eventos/proximos-eventos.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { EventosComponent } from './components/eventos/eventos.component';
     UpdateEventosComponent,
     UpdateEventoComponent,
     EventosComponent,
+    DestacadosComponent,
+    ToolsComponent,
+    ProximosEventosComponent,
   ],
   imports: [
     BrowserModule,

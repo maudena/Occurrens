@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../interfaces/user.interface';
 import { Evento } from 'src/app/interfaces/evento.interface';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update-eventos',
@@ -18,7 +19,8 @@ export class UpdateEventosComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -30,9 +32,11 @@ export class UpdateEventosComponent implements OnInit {
         next: (res: any) => {
           this.user = res;
           this.listaEventos = this.user.userEvents;
+          this.authService.setAuthenticated(true);
         },
         error: error => {
           console.log(error);
+          this.authService.setAuthenticated(false);
           this.router.navigate(['/login']);
         },
       });

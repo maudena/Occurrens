@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Evento } from '../interfaces/evento.interface';
 
@@ -35,6 +35,12 @@ export class EventoService {
 
   updateProximos(eventos: Evento[]) {
     this.proximosSubject.next(eventos);
+  }
+
+  getEventos(): Observable<Evento[]> {
+    return this.http.get<Evento[]>('http://localhost:3000/api/eventos', {
+      withCredentials: true,
+    });
   }
 
   getEvento(): Evento | null {

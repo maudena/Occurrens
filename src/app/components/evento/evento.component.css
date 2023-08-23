@@ -1,37 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@700&family=Koulen&family=Poppins&family=Staatliches&family=Ubuntu&display=swap');
 
 
-.eventContainer{
-    margin: 5px;
+.containerEvento{
+    width: 98%;
     background-color: #fff;
-    padding: 15px 20px;
     border-radius: 5px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
 }
+.dateContainer{
+  justify-content: space-between;
+}
 .dateStyle{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   color: #fff;
-  padding: 5px;
+  padding: 5px 30px 5px 5px;
   background-color: #282860;
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 70%, 0 100%);
+  border-radius: 5px;
+  clip-path: polygon(0% 0%, 100% 0, 85% 50%, 100% 100%, 0% 100%);
+
+}
+.date{
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+.interaction{
+  align-items: center;
+}
+.interaction p{
+  padding-left: 3px;
+  margin:0;
 }
 
 h5{
   font-family: "Poppins", sans-serif;
   padding-bottom: 0;
+  padding-top: 5px;
   padding-right: 5px;
   margin-bottom: 0;
-  font-size: 26px;
+  font-size: 1.6rem;
+}
+
+.unEventoTitulo{
+  padding-top: 10px;
+}
+
+.description{
+  padding-top: 10px;
 }
 
 p{
   font-family: "Poppins", sans-serif;
 }
 
-.eventoDate{
-  padding-right: 25px;
+.organizador{
+  font-size: .8rem;
+}
+.organizador a{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.location{
+  display: flex;
+  padding-bottom: 5px;
+  padding-top: 15px;
+}
+.location p{
+  margin: 0;
+  padding-top: 3px;
+  padding-left: 3px;
 }
 
 .map-link .icon-alternate {
@@ -55,6 +93,15 @@ p{
   max-width: 100%;
   max-height: 30rem;
   object-fit: cover;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.boton{
+  padding-top: 10px;
+  padding-bottom: 7.5px;
+  display: flex;
 }
 
 .botonDetalles {
@@ -78,7 +125,6 @@ p{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100%;
   will-change: transform;
 }
 
@@ -96,4 +142,8 @@ p{
 .botonDetalles:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.costoService{
+  font-size: .8rem;
 }

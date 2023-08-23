@@ -5,7 +5,7 @@
       <div class="event-details">
         <div class="input-box">
           <span class="details">Título del evento</span>
-          <input formControlName="name" type="text" required />
+          <input formControlName="name" type="text" required maxlength="40" />
         </div>
         <div class="input-box">
           <span class="details">Fecha del evento</span>
@@ -13,7 +13,11 @@
         </div>
         <div class="input-box">
           <span class="details">Ubicación del evento</span>
-          <input formControlName="location" type="text" required />
+          <input
+            formControlName="location"
+            type="text"
+            required
+            maxlength="50" />
         </div>
         <div class="input-box">
           <label for="exampleFormControlTextarea1" class="form-label"
@@ -24,6 +28,7 @@
             formControlName="description"
             id="exampleFormControlTextarea1"
             rows="3"
+            maxlength="100"
             required></textarea>
         </div>
         <div class="mb-3">
@@ -50,11 +55,16 @@
             formControlName="ticketPrice"
             type="text"
             placeholder="Ingresa un precio "
+            maxlength="6"
             required />
         </div>
         <div class="input-box">
           <span class="details">Cantidad de entradas disponibles</span>
-          <input formControlName="availableTickets" type="text" required />
+          <input
+            formControlName="availableTickets"
+            type="text"
+            required
+            maxlength="6" />
         </div>
         <div class="input-box">
           <span class="details">Categoría del evento</span>
