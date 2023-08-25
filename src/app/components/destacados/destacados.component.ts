@@ -13,8 +13,7 @@ import { EventoService } from 'src/app/services/evento.service';
   providers: [FilterPipe],
 })
 export class DestacadosComponent implements OnInit {
-  filterEvento = '';
-
+  filterEventos = '';
   constructor(
     private http: HttpClient,
     private authService: AuthService,

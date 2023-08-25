@@ -2,16 +2,16 @@
 
 .navbar{
     padding-bottom: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 }
 
 .navbar-brand{
-    margin-left: 4rem;
+    margin-left: 1rem;
     font-family: "Poppins", sans-serif;
     font-size: 40px;
 }
 .navbar-nav{
-    margin-right: 4rem;
+    margin-right: 1rem;
 }
 ul li a{
     font-family: "Poppins", sans-serif;

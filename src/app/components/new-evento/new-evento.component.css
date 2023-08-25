@@ -11,20 +11,20 @@ body {
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-.container {
+.container-fluid {
   max-width: 700px;
-  width: 100%;
+  width: 98%;
   background-color: #fff;
   padding: 15px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
-.container .title {
+.container-fluid .title {
   font-size: 25px;
   font-weight: 500;
   position: relative;
 }
-.container .title::before {
+.container-fluid .title::before {
   content: "";
   position: absolute;
   left: 0;
@@ -94,25 +94,44 @@ form .category label .dot {
 form input[type="radio"] {
   display: none;
 }
-form .button {
-  height: 45px;
-  margin: 35px 0;
-}
-form .button input {
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
+
+.botonDetalles {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #282860;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #282860;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: linear-gradient(90deg, #0a110a, #2ebf7c, #cfe791);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
 }
-form .button input:hover {
-  background: linear-gradient(-90deg, #0a110a, #2ebf7c, #cfe791);
+
+.botonDetalles:disabled{
+  pointer-events: none;
+}
+
+.botonDetalles:hover{
+  color: #fff;
+  background-color: #282860;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.botonDetalles:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 @media (max-width: 584px) {
   .container {

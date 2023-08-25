@@ -77,6 +77,22 @@ export async function getEvento(req, res) {
   }
 }
 
+export async function getEventoForUpdate(req, res) {
+  const id = req.params.id;
+  try {
+    const evento = await Evento.findOne({ _id: id }).populate('owner');
+    if (evento) {
+      await evento.save();
+      res.send(evento);
+    } else {
+      res.status(404).send({ message: 'Evento no encontrado' });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: 'Error al obtener el evento' });
+  }
+}
+
 // FILTRO DE CATEGORIAS
 export async function getEventsByCategory(req, res){
   const category = req.params.category

@@ -32,33 +32,25 @@ export class UpdateEventoComponent implements OnInit {
   ngOnInit(): void {
     this.eventId = this.route.snapshot.paramMap.get('id') ?? '';
 
-    this.eventoService.getEventoById(this.eventId).subscribe({
-      next: (res: Evento) => {
-        this.evento = res;
-        this.form.patchValue({
-          name: this.evento.name,
-          description: this.evento.description,
-          date: this.evento.date,
-          location: this.evento.location,
-          ticket: this.evento.ticket,
-          ticketPrice: this.evento.ticketPrice,
-          availableTickets: this.evento.availableTickets,
-          category: this.evento.category,
-        });
-        this.isChecked = this.evento.ticket;
-      },
-      error: error => {
-        this.router.navigate(['/login']);
-      },
-    });
-
     this.http
-      .get(`http://localhost:3000/api/evento/${this.eventId}`, {
+      .get<Evento>(`http://localhost:3000/api/update-evento/${this.eventId}`, {
         withCredentials: true,
       })
       .subscribe({
-        next: (res: any) => {
+        next: (res: Evento) => {
           this.evento = res;
+          console.log(res);
+          this.form.patchValue({
+            name: this.evento.name,
+            description: this.evento.description,
+            date: this.evento.date,
+            location: this.evento.location,
+            ticket: this.evento.ticket,
+            ticketPrice: this.evento.ticketPrice,
+            availableTickets: this.evento.availableTickets,
+            category: this.evento.category,
+          });
+          this.isChecked = this.evento.ticket;
         },
         error: error => {
           this.router.navigate(['/login']);
@@ -77,8 +69,6 @@ export class UpdateEventoComponent implements OnInit {
       category: '',
     });
     this.getUserData();
-
-    this.eventId = this.route.snapshot.paramMap.get('id') ?? '';
   }
 
   fileChosen(event: any): void {

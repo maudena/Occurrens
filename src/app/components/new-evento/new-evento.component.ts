@@ -89,7 +89,6 @@ export class NewEventoComponent implements OnInit {
       .subscribe({
         next: (res: User) => {
           this.user = res;
-          console.log(res);
           this.listaEventos = this.user.userEvents;
         },
         error: error => {

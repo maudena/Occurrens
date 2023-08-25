@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid mb-3">
   <div class="title">Crear un nuevo Evento</div>
   <div class="content">
     <form [formGroup]="form" (submit)="submit()" enctype="multipart/form-data">
@@ -77,8 +77,8 @@
           </select>
         </div>
       </div>
-      <div class="button">
-        <input type="submit" value="Crear Evento" />
+      <div class="d-flex justify-content-center">
+        <input class="botonDetalles w-100" type="submit" value="Crear Evento" />
       </div>
     </form>
   </div>

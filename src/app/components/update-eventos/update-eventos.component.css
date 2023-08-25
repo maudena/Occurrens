@@ -1,119 +1,155 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Koulen&family=Staatliches&family=Ubuntu&display=swap');
 
-p, a{
-  font-family: "Ubuntu", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@700&family=Koulen&family=Poppins&family=Staatliches&family=Ubuntu&display=swap');
+
+
+.containerEvento{
+    width: 98%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
 }
-
-
-.homeLeftOne, .homeCenterOne, .homeRightOne {
-  margin: 5px;
-  background-color: #fff;
-  padding: 15px 20px;
+.dateContainer{
+  justify-content: space-between;
+}
+h5{
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 0;
+    padding-top: 5px;
+    padding-right: 5px;
+    margin-bottom: 0;
+    font-size: 1.6rem;
+  }
+.dateStyle{
+  display: inline-block;
+  color: #fff;
+  padding: 5px 30px 5px 5px;
+  background-color: #282860;
   border-radius: 5px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
-}
-.homeLeftOne, .homeRightOne{
-  margin-top: 25px;
-}
+  clip-path: polygon(0% 0%, 100% 0, 85% 50%, 100% 100%, 0% 100%);
 
+}
 .date{
   font-family: "Staatliches", sans-serif;
-  font-size: 20px;
-  
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+.interaction{
+  align-items: center;
+}
+.interaction p{
+  padding-left: 3px;
+  margin:0;
 }
 
-.tools{
+.titleEdit{
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.description{
   padding-top: 10px;
-  list-style:none;
-}
-.tools li a{
-  
 }
 
-.eventoContainer{
-  overflow: hidden;
+p{
+  font-family: "Poppins", sans-serif;
 }
 
-.linkDetail{
-  color: black;
+.organizador{
+  font-size: .8rem;
+}
+.organizador a{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.location{
+  display: flex;
+  padding-bottom: 5px;
+  padding-top: 15px;
+}
+.location p{
+  margin: 0;
+  padding-top: 3px;
+  padding-left: 3px;
+}
+
+.map-link .icon-alternate {
+  display: none; /* Oculta el icono alternativo */
+}
+
+.map-link:hover .bi-geo-alt {
+  display: none; /* Oculta el icono original en estado de hover */
+}
+
+.map-link:hover .icon-alternate {
+  display: inline-block;
+  color: #282860; /* Muestra el icono alternativo en estado de hover */
+}
+
+.bi-ticket-perforated, .bi-geo-alt{
+  color: #282860;
+}
+
+.images {
+  max-width: 100%;
+  max-height: 30rem;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.boton{
+  padding-top: 10px;
+  padding-bottom: 7.5px;
+  display: flex;
+}
+
+.botonDetalles {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #282860;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #282860;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+.botonDetalles:disabled{
+  pointer-events: none;
+}
+
+.botonDetalles:hover{
+  color: #fff;
+  background-color: #282860;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.botonDetalles:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 .costoService{
-  font-size: 12px;
+  font-size: .8rem;
 }
-h1{
-  font-family: "Staatliches", sans-serif;
-}
-
-h4{
-  display: flex;
-  align-items:end;
-  font-family: "Staatliches", sans-serif;
-}
-h5{
-  font-family: "Antonio", sans-serif;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  font-size: 22px;
-}
-.subEvent{
-  display: flex;
-  justify-content: space-between;
-  padding-top: 0;
-  margin-top: 0;
-  font-weight: 400;
-  font-size: 14px;
-}
-.subNextEvent{
-  padding-top: 0;
-  margin-top: 0;
-  font-weight: 400;
-  font-size: 14px;
-}
-
-.homeSubs{
-  height: 3.5rem;
-  justify-content: center;
-}
-.dateNextEvent{
-  font-family: "Staatliches", sans-serif;
-  font-size: 25px;
-  
-}
-
-.botonDetalles{
-  padding-left: 7px;
-  padding-bottom: 10px;
-}
-.botonDetalles :hover{
-  background-color: #e1e6d6e3;
-}
-
-
-.imagesContainer{
-  max-height: 21.875rem;
-  clip-path: polygon(100% 0%, 100% 56%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
-  
-  
-}
-.images{
-  max-width: 100%;
-  object-fit: cover;
-}
-.organizedBy a {
-  text-decoration: underline; 
-  color: #000; 
-  transition: color 0.3s; 
-  cursor: pointer; 
-}
-
-
-.organizedBy a:hover {
-  color: blue; 
-  text-decoration: underline; 
-}
-.botones{
-  display: flex;
-  
-}
-

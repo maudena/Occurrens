@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../interfaces/user.interface';
 import { Evento } from 'src/app/interfaces/evento.interface';
 import { AuthService } from 'src/app/services/auth.service';
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-eventos',
@@ -20,7 +22,8 @@ export class UpdateEventosComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +43,29 @@ export class UpdateEventosComponent implements OnInit {
           this.router.navigate(['/login']);
         },
       });
+  }
+
+  eliminarEvento(eventId: any) {
+    this.http
+      .delete(`http://localhost:3000/api/delete-evento/${eventId}`)
+      .subscribe({
+        next: () => {
+          Swal.fire(
+            'Excelente!',
+            'Se ha eliminado el evento seleccionado!',
+            'success'
+          );
+          this.router.navigate(['/']);
+        },
+        error: error => {
+          console.log(error);
+        },
+      });
+  }
+
+  getMapLink(location: string): string {
+    const encodedLocation = encodeURIComponent(location);
+    return `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
   }
 
   renderUpdateEvento(eventoId: string): void {

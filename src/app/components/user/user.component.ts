@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../interfaces/user.interface';
 import { Evento } from 'src/app/interfaces/evento.interface';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -17,14 +18,29 @@ export class UserComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.http
+      .get('http://localhost:3000/api/user', {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (res: any) => {
+          this.authService.setAuthenticated(true);
+        },
+        error: error => {
+          console.log(error);
+          this.router.navigate(['/login']);
+          this.authService.setAuthenticated(false);
+        },
+      });
+
     this.route.paramMap.subscribe(params => {
       const userId = params.get('id');
       if (userId) {
-        // Se proporcionó un ID de usuario en la ruta, obtener los datos del usuario correspondiente
         this.http
           .get<User>(`http://localhost:3000/api/user/${userId}`, {
             withCredentials: true,
@@ -32,6 +48,7 @@ export class UserComponent implements OnInit {
           .subscribe({
             next: (res: any) => {
               this.user = res;
+              console.log(this.user);
               this.listaEventos = this.user.userEvents;
               this.isCurrentUserProfile = false; // Indicar que el perfil no es del usuario actual
             },
@@ -60,7 +77,7 @@ export class UserComponent implements OnInit {
     });
   }
 
-  redirectToEventDetails(eventId: string): void {
+  redirectToEventoDetails(eventId: string): void {
     this.router.navigate(['/evento', eventId]);
   }
 }

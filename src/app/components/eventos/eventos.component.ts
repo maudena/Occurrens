@@ -81,20 +81,7 @@ export class EventosComponent implements OnInit {
   }
 
   redirectToEventoDetails(eventoId: any): void {
-    this.http
-      .get<Evento>(`http://localhost:3000/api/evento/${eventoId}`, {
-        withCredentials: true,
-      })
-      .subscribe({
-        next: (data: any) => {
-          this.eventoService.updateInteraction(data.interaction);
-          this.eventoService.updateEvento(data);
-          this.router.navigate([`/evento/${eventoId}`]);
-        },
-        error: error => {
-          console.log('Error al obtener los detalles del evento:', error);
-        },
-      });
+    this.router.navigate([`/evento/${eventoId}`]);
   }
   redirectToUserProfile(userId: string): void {
     console.log(userId);

@@ -2,7 +2,7 @@ import { Router } from "express";
 import { postRegister } from "../controllers/register.controller.js";
 import { getUser, getUserById } from "../controllers/user.controller.js";
 import { postLogin, postLogout } from "../controllers/login.controller.js";
-import { deleteEvento, getEvento, getEventos, postNewEvento, putEvento, getEventsByCategory } from "../controllers/event.controller.js";
+import { deleteEvento, getEvento, getEventos, postNewEvento, putEvento, getEventsByCategory, getEventoForUpdate } from "../controllers/event.controller.js";
 
 const router = Router();
 
@@ -24,6 +24,7 @@ router.get("/home", getEventos)
 router.post("/new-evento", postNewEvento)
 router.get("/eventos", getEventos)
 router.get("/evento/:id", getEvento)
+router.get("/update-evento/:id", getEventoForUpdate)
 router.get("/eventos/:category", getEventsByCategory)
 router.get("/update-eventos", getEvento)
 router.put("/update-evento/:id", putEvento)

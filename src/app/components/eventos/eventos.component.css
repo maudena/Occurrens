@@ -1,99 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@700&family=Koulen&family=Poppins&family=Staatliches&family=Ubuntu&display=swap');
-.mainContainer{
-  padding-top: 0px;
-  margin-top: 0px;
+
+
+.containerEvento{
+    width: 98%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
 }
-p, a{
-  font-family: "Poppins", sans-serif;
+.dateContainer{
+  justify-content: space-between;
+}
+.dateStyle{
+  display: inline-block;
+  color: #fff;
+  padding: 5px 30px 5px 5px;
+  background-color: #282860;
+  border-radius: 5px;
+  clip-path: polygon(0% 0%, 100% 0, 85% 50%, 100% 100%, 0% 100%);
+
+}
+.date{
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+.interaction{
+  align-items: center;
+}
+.interaction p{
+  padding-left: 3px;
+  margin:0;
 }
 
-h1{
-  font-family: "Poppins", sans-serif;
-  font-size: 32px;
-}
-
-h4{
-  display: flex;
-  align-items:end;
-  font-family: "Poppins", sans-serif;
-  font-size: 23px;
-}
 h5{
   font-family: "Poppins", sans-serif;
   padding-bottom: 0;
+  padding-top: 5px;
   padding-right: 5px;
   margin-bottom: 0;
-  font-size: 26px;
+  font-size: 1.6rem;
 }
 
-
-.homeCenterOne{
-  margin: 5px;
-  background-color: #fff;
-  padding: 15px 20px;
-  border-radius: 5px;
-  
+.unEventoTitulo{
+  padding-top: 10px;
 }
 
+.description{
+  padding-top: 10px;
+}
 
-.outer-container {
+p{
+  font-family: "Poppins", sans-serif;
+}
+
+.organizador{
+  font-size: .8rem;
+}
+.organizador a{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.location{
   display: flex;
-  justify-content: center;
-  width: 100%; 
-  height: 2px; 
-  overflow: visible; 
+  padding-bottom: 5px;
+  padding-top: 15px;
 }
-
-.inner-container{
-  text-align: center;
-  width: auto;
-  height: 3.75rem;
-  padding: 10px; 
-  margin-left: 5px;
-  overflow: hidden; 
+.location p{
+  margin: 0;
+  padding-top: 3px;
+  padding-left: 3px;
 }
-
-.dateStyle{
-  padding: 5px;
-  background-color: #282860;
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 70%, 0 100%);
-}
-
-.date{
-  font-family: "Staatliches", sans-serif;
-  font-size: 24px;
-  color: #fff;
-  
-}
-
-.eventoContainer{
-    overflow: hidden;
-}
-
-.linkDetail{
-  color: black;
-}
-
-.costoService{
-  font-size: 12px;
-
-}
-
-.subEvent{
-  display: flex;
-  justify-content: space-between;
-  padding-top: 0;
-  margin-top: 0;
-  font-weight: 400;
-  font-size: 13px;
-}
-
-.homeSubs{
-  height: 3.5rem;
-  justify-content: center;
-}
-
-
 
 .map-link .icon-alternate {
   display: none; /* Oculta el icono alternativo */
@@ -108,6 +85,24 @@ h5{
   color: #282860; /* Muestra el icono alternativo en estado de hover */
 }
 
+.bi-ticket-perforated, .bi-geo-alt{
+  color: #282860;
+}
+
+.images {
+  max-width: 100%;
+  max-height: 30rem;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.boton{
+  padding-top: 10px;
+  padding-bottom: 7.5px;
+  display: flex;
+}
 
 .botonDetalles {
   appearance: none;
@@ -130,7 +125,6 @@ h5{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100%;
   will-change: transform;
 }
 
@@ -145,47 +139,11 @@ h5{
   transform: translateY(-2px);
 }
 
-.botonDetalles:active{
+.botonDetalles:active {
   box-shadow: none;
   transform: translateY(0);
 }
 
-.imagesContainer{
-  max-height: 21.875rem;
-  clip-path: polygon(100% 0%, 100% 56%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
-  
-  
+.costoService{
+  font-size: .8rem;
 }
-.images{
-  max-width: 100%;
-  object-fit: cover;
-
-}
-.organizedBy{
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-.organizedBy a {
-  text-decoration: underline; 
-  color: #282860; 
-  transition: color 0.3s; 
-  cursor: pointer; 
-}
-
-.bi-ticket-perforated, .bi-geo-alt{
-  color: #282860;
-}
-
-.organizedBy a:hover {
-  text-decoration: underline; 
-}
-.botones{
-  display: flex;
-  padding-top: 10px;
-}
-.views{
-  display: flex;
-  height: 16px;
-  font-size: small;
-}
-

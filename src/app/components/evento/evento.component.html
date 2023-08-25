@@ -1,7 +1,8 @@
-<div *ngIf="multipleEventos; else muestraUnEvento">
+<!--EVENTOS DESTACADOS-->
+<div *ngIf="eventosDestacados; else muestraUnEvento">
   <div
     *ngFor="
-      let evento of eventoService.destacados$ | async | filter: filterEvento;
+      let evento of eventoService.destacados$ | async | filter: filterEventos;
       let i = index
     "
     class="container-fluid containerEvento my-2 mx-0 w-100">
@@ -128,6 +129,7 @@
   </div>
 </div>
 
+<!--MOSTRAR UN SOLO EVENTO-->
 <ng-template #muestraUnEvento>
   <div class="container-fluid containerEvento">
     <div class="row">

@@ -5,17 +5,18 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { EventoService } from 'src/app/services/evento.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/interfaces/user.interface';
 @Component({
   selector: 'app-evento',
   templateUrl: './evento.component.html',
   styleUrls: ['./evento.component.css'],
 })
 export class EventoComponent implements OnInit {
-  @Input() multipleEventos: boolean = false;
+  @Input() eventosDestacados: boolean = false;
   listaEventos: Evento[] = [];
   evento: Evento = {} as Evento;
   eventId: any = '';
-  filterEvento = '';
+  filterEventos = '';
   imageUrlPrefix = 'http://localhost:3000/public/';
 
   constructor(
@@ -29,7 +30,7 @@ export class EventoComponent implements OnInit {
   ngOnInit(): void {
     this.eventId = this.route.snapshot.paramMap.get('id');
     this.http
-      .get('http://localhost:3000/api/user', {
+      .get<User>('http://localhost:3000/api/user', {
         withCredentials: true,
       })
       .subscribe({
@@ -43,7 +44,7 @@ export class EventoComponent implements OnInit {
         },
       });
 
-    if (this.multipleEventos) {
+    if (this.eventosDestacados) {
       this.eventoService.getEventos().subscribe({
         next: (data: any) => {
           this.listaEventos = data;
@@ -76,20 +77,7 @@ export class EventoComponent implements OnInit {
   }
 
   redirectToEventoDetails(eventoId: any): void {
-    this.http
-      .get<Evento>(`http://localhost:3000/api/evento/${eventoId}`, {
-        withCredentials: true,
-      })
-      .subscribe({
-        next: (data: any) => {
-          this.eventoService.updateInteraction(data.interaction);
-          this.eventoService.updateEvento(data);
-          this.router.navigate([`/evento/${eventoId}`]);
-        },
-        error: error => {
-          console.log('Error al obtener los detalles del evento:', error);
-        },
-      });
+    this.router.navigate([`/evento/${eventoId}`]);
   }
 
   getMapLink(location: string): string {
