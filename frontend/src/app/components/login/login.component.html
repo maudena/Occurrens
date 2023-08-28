@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="title pb-1">Ingresá</div>
+  <div class="content">
+    <form [formGroup]="form" (submit)="submit()">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Email</span>
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Ingresa tu username o email"
+            required />
+        </div>
+        <div class="input-box">
+          <span class="details">Contraseña</span>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Ingresa tu contraseña"
+            required />
+        </div>
+      </div>
+
+      <div class="button">
+        <input type="submit" value="Entrar" />
+      </div>
+    </form>
+  </div>
+</div>

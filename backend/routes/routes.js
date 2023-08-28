@@ -1,34 +1,33 @@
 import { Router } from "express";
-import { postRegister } from "../controllers/register.controller.js";
-import { getUser, getUserById } from "../controllers/user.controller.js";
-import { postLogin, postLogout } from "../controllers/login.controller.js";
-import { deleteEvento, getEvento, getEventos, postNewEvento, putEvento, getEventsByCategory, getEventoForUpdate } from "../controllers/event.controller.js";
-
+import { register } from "../modules/login-register/register.controller.js";
+import { getUser, getUserById } from "../modules/user/user.controller.js";
+import { login, logout } from "../modules/login-register/login.controller.js";
+import EventController from "../modules/events/event.controller.js"
 const router = Router();
 
 
 //----ESTAS RUTAS SE REDIRECCIONAN A /API/*RUTA----//
 
 //------LOGIN, REGISTRO, LOGOUT-------//
-router.post("/register", postRegister);
-router.post("/login", postLogin);
-router.post("/logout", postLogout)
+router.post("/register", register);
+router.post("/login", login);
+router.post("/logout", logout)
 router.get("/user", getUser);
-router.get("/user/:id",getUserById)
+router.get("/user/:id", getUserById)
 
 
 //------HOME-------//
-router.get("/home", getEventos)
+router.get("/home", EventController.findAll)
 
 //------EVENTOS------//
-router.post("/new-evento", postNewEvento)
-router.get("/eventos", getEventos)
-router.get("/evento/:id", getEvento)
-router.get("/update-evento/:id", getEventoForUpdate)
-router.get("/eventos/:category", getEventsByCategory)
-router.get("/update-eventos", getEvento)
-router.put("/update-evento/:id", putEvento)
-router.delete("/delete-evento/:id", deleteEvento)
+router.post("/new-evento", EventController.newEvent)
+router.get("/eventos", EventController.findAll)
+router.get("/evento/:id", EventController.findById)
+router.get("/update-evento/:id", EventController.findOneForUpdate)
+router.get("/eventos/:category", EventController.findByCategory)
+router.get("/update-eventos", EventController.newEvent)
+router.put("/update-evento/:id", EventController.updateOne)
+router.delete("/delete-evento/:id", EventController.deleteOne)
 
 
 

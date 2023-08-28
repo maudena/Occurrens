@@ -1,0 +1,41 @@
+<div class="container-fluid userContainer">
+  <div class="row">
+    <div class="col-md userInfoContainer">
+      <div class="user-profile">
+        <img
+          class="profile-image"
+          src="https://dummyimage.com/600x400/000/fff"
+          alt="" />
+      </div>
+      <div class="userInfo">
+        <h5>Información del usuario</h5>
+        <div>
+          <p>Nombre: {{ user.fullname }}</p>
+          <p>Username: {{ user.username }}</p>
+          <p>Teléfono: {{ user.phone }}</p>
+          <p>Categoría: {{ user.category }}</p>
+          <p>Email: {{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="col-md">
+      <h5>Eventos creados por el usuario</h5>
+      <div class="userEvents" *ngFor="let evento of listaEventos">
+        <div class="d-flex justify-content-between text-align-center pb-3">
+          <p class="eventoName">{{ evento.name }}</p>
+          <div>
+            <button
+              class="botonDetalles"
+              (click)="redirectToEventoDetails(evento._id)"
+              role="button">
+              Detalles
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="title">Registrate</div>
+  <div class="content">
+    <form [formGroup]="form" (submit)="submit()">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Nombre Completo</span>
+          <input
+            formControlName="fullname"
+            type="text"
+            placeholder="Ingresa tu nombre completo"
+            required />
+        </div>
+        <div class="input-box">
+          <span class="details">Username</span>
+          <input
+            formControlName="username"
+            type="text"
+            placeholder="Ingresa tu nombre de usuario"
+            required />
+        </div>
+        <div class="input-box">
+          <span class="details">Email</span>
+          <input
+            formControlName="email"
+            type="email"
+            placeholder="Ingresa tu email"
+            required />
+        </div>
+        <div class="input-box">
+          <span class="details">Teléfono</span>
+          <input
+            formControlName="phone"
+            type="text"
+            placeholder="Ingresa tu número de teléfono"
+            required />
+        </div>
+        <div class="input-box">
+          <span class="details">Contraseña</span>
+          <input
+            formControlName="password"
+            type="text"
+            placeholder="Ingresa tu contraseña"
+            required />
+        </div>
+      </div>
+      <div class="gender-details">
+        <input
+          type="radio"
+          formControlName="category"
+          value="user"
+          id="dot-1" />
+        <input
+          type="radio"
+          formControlName="category"
+          value="bussiness"
+          id="dot-2" />
+        <span class="gender-title">Tipo de cuenta</span>
+        <div class="category">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Usuario</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Negocio</span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <input class="botonDetalles w-100" type="submit" value="Registrarse" />
+      </div>
+    </form>
+  </div>
+</div>
